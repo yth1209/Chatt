@@ -4,47 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".util.activity.ChatActivity">
 
     <ListView
-        android:id="@+id/friendList"
+        android:id="@+id/chatList"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="72dp"
-        android:clickable="true"
-        android:contextClickable="true"
-        android:longClickable="true"
-        android:transcriptMode="alwaysScroll"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/addFriendEditText"
+        android:id="@+id/editTextAddChat"
         android:layout_width="360dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="@string/add_friend_text"
-        android:importantForAutofill="no"
+        android:hint="@string/chat_add_text"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/addFriendButton"
+        android:id="@+id/buttonAddChat"
         android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:hint="@string/add_friend_button"
-        android:onClick="clicked_addFriendButton"
-        android:text="@string/add"
+        android:hint="@string/chat_add_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
