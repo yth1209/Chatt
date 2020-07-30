@@ -5,12 +5,14 @@ import android.graphics.drawable.Drawable;
 public class ChatVO {
     private Drawable icon ;
     private String chat ;
+    private String name;
 
     public ChatVO(){
 
     }
 
-    public ChatVO(Drawable newIcon, String newChat){
+    public ChatVO(Drawable newIcon, String name, String newChat){
+        this.name = name;
         icon = newIcon;
         chat = newChat;
     }
@@ -21,6 +23,9 @@ public class ChatVO {
     public void setText(String title) {
         chat = title ;
     }
+    public void setName(String newname){
+        name = newname;
+    }
 
     public Drawable getIcon() {
         return this.icon;
@@ -29,4 +34,7 @@ public class ChatVO {
         return this.chat ;
     }
 
+    public String getName(){
+        return this.name;
+    }
 }

@@ -19,6 +19,7 @@ public class ChatAdapter extends BaseAdapter {
     private ArrayList<ChatVO> chatDataList;
     private LayoutInflater inflater;
 
+    ChatViewHolder holder;
 
     public ChatAdapter(Context applicationContext, int talklist, ArrayList<ChatVO> list){
         this.context = applicationContext;
@@ -50,24 +51,28 @@ public class ChatAdapter extends BaseAdapter {
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.chat_view, parent, false);
-        }
+            holder = new ChatViewHolder();
+            holder.iconImageView = (ImageView) convertView.findViewById(R.id.imageView);
+            holder.nameTextView = (TextView)convertView.findViewById(R.id.textViewUsername);
+            holder.titleTextView = (TextView) convertView.findViewById(R.id.textViewChat);
 
-        // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        ImageView iconImageView = (ImageView) convertView.findViewById(R.id.imageView) ;
-        TextView titleTextView = (TextView) convertView.findViewById(R.id.textView) ;
+            convertView.setTag(holder);
+        }
+        else{
+          holder= (ChatViewHolder) convertView.getTag();
+        }
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ChatVO chatData = chatDataList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        iconImageView.setImageDrawable(chatData.getIcon());
-        titleTextView.setText(chatData.getText());
+        holder.bind(chatData.getIcon(),chatData.getName(), chatData.getText());
 
         return convertView;
     }
 
-    public void add(Drawable icon, String chat){
-        ChatVO newChatData = new ChatVO(icon, chat);
+    public void add(Drawable icon, String name, String chat){
+        ChatVO newChatData = new ChatVO(icon, name, chat);
 
         chatDataList.add(newChatData);
     }

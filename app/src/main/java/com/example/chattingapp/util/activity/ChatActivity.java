@@ -34,22 +34,19 @@ public class ChatActivity extends AppCompatActivity {
 
         cArray = new ArrayList<ChatVO>();
 
-        ChatVO a = new ChatVO(ContextCompat.getDrawable(this, R.drawable.user1), "너 병신이야?");
-        cArray.add(a);
-
         adapter = new ChatAdapter(this, R.layout.chat_view, cArray);
         clist = findViewById(R.id.chatList);
         act = findViewById(R.id.editTextAddChat);
         acb = findViewById(R.id.buttonAddChat);
 
-        adapter.add(ContextCompat.getDrawable(this, R.drawable.user1), "너 병신이야?");
-        adapter.add(ContextCompat.getDrawable(this, R.drawable.user2), "응 맞아!");
+        adapter.add(ContextCompat.getDrawable(this, R.drawable.user1), "유태현","너 병신이야?너 병신이야?너 병신이야?너 병신이야?너 병신이야?너 병신이야?너 병신이야?");
+        adapter.add(ContextCompat.getDrawable(this, R.drawable.user2), "김우주", "응 맞아!");
 
         clist.setAdapter(adapter);
 
-        //Intent intent = getIntent();
-        //user_id = intent.getStringExtra(MainActivity.EXTRA_USER);
-        //friend_id = intent.getStringExtra(MainActivity.EXTRA_FRIEND);
+        Intent intent = getIntent();
+        user_id = intent.getStringExtra(MainActivity.EXTRA_USER);
+        friend_id = intent.getStringExtra(MainActivity.EXTRA_FRIEND);
 
 
 
